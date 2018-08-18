@@ -1,0 +1,102 @@
+{
+  "name": "react-redux-starter-kit",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run start:all",
+    "start:all": "npm-run-all -p start:server start:client",
+    "start:all:prod": "cross-env NODE_ENV=production npm run start:all",
+    "start:client": "webpack-dev-server --config config/webpack.config.dev.js",
+    "start:server": "nodemon server/bin/cluster --watch server",
+    "start:server:prod": "cross-env NODE_ENV=production npm run start:server",
+    "start:tunnel": "npm run build && cross-env NODE_ENV=production npm-run-all -p start:server tunnel",
+    "tunnel": "lt --port 8000",
+    "prebuild": "npm run build:clean",
+    "build": "webpack --progress --config config/webpack.config.prod.js -p",
+    "build:clean": "npm run test:clean && rimraf ./dist",
+    "lint": "npm run lint:eslint -- . --ext .js --ext .jsx",
+    "lint:eslint": "eslint",
+    "pretest": "npm run test:clean && npm run lint",
+    "test": "jest",
+    "test:clean": "rimraf coverage",
+    "presetup": "npm install",
+    "setup": "node setup",
+    "precommit": "lint-staged",
+    "deploy": ""
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "lint:eslint"
+  },
+  "babel": {
+    "extends": "./config/.babelrc"
+  },
+  "eslintConfig": {
+    "extends": "./config/.eslintrc"
+  },
+  "eslintIgnore": [
+    "coverage",
+    "dist"
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "testRegex": "\\.spec\\.js$",
+    "coveragePathIgnorePatterns": [
+      "/client/translations/"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "html-webpack-plugin": "^2.30.1",
+    "intl": "^1.2.5",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "prop-types": "^15.5.10",
+    "pug": "^2.0.0-rc.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-intl": "^2.4.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.8.0",
+    "serve-favicon": "^2.4.3",
+    "styled-components": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chalk": "^2.1.0",
+    "compression-webpack-plugin": "^1.0.0",
+    "cross-env": "^5.0.5",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.6.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.4",
+    "localtunnel": "^1.8.3",
+    "nodemon": "^1.12.0",
+    "npm-run-all": "^4.1.1",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^15.6.1",
+    "redux-mock-store": "^1.2.3",
+    "rimraf": "^2.6.1",
+    "shelljs": "^0.7.8",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
