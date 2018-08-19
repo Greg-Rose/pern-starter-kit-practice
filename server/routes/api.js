@@ -1,13 +1,13 @@
-const express = require("express")
+const express = require('express');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.end("/api")
-})
+router.get('/', (req, res) => {
+  res.end('/api');
+});
 
-router.all("*", (req, res) => {
-    res.end("Api not found.")
-})
+router.all('*', (req, res) => {
+  res.end('Api not found.');
+});
 
-module.exports = router
+module.exports = router;

@@ -1,17 +1,14 @@
-import React from "react"
-import { bindActionCreators } from "redux"
-import { connect } from "react-redux"
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom"
-import Home from "./Home"
-import NotFound from "./NotFound"
-import PropsRoute from "../components/PropsRoute"
-import * as actions from "../actions"
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import NotFound from './NotFound';
+import PropsRoute from '../components/PropsRoute';
+import * as actions from '../actions';
 
-class App extends React.Component { //eslint-disable-line
+class App extends React.Component {
+  //eslint-disable-line
   render() {
     return (
       <Router>
@@ -20,15 +17,15 @@ class App extends React.Component { //eslint-disable-line
           <Route component={NotFound} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => ({
-})
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators(actions, dispatch)
-)
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
