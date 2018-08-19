@@ -1,8 +1,7 @@
-import React from "react"
-import { FormattedMessage } from "react-intl"
+import React from "react";
 
 const NotFound = () => (
-    <FormattedMessage id="NotFound.title" />
-)
+  <h1>Not Found</h1>
+);
 
-export default NotFound
+export default NotFound;
