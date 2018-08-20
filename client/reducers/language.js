@@ -1,8 +1,9 @@
 import { SWITCH_LANGUAGE } from '../actions/language';
-import { DEFAULT_LOCALE } from '../translations/i18n';
+// import { DEFAULT_LOCALE } from '../translations/i18n';
 
 const initialState = {
-  locale: DEFAULT_LOCALE
+  locale: null
+  // locale: DEFAULT_LOCALE
 };
 
 export default function language(state = initialState, action) {
